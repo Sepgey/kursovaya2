@@ -11,5 +11,14 @@ namespace Wallpapers.Entities
         public string Type { get; set; }
         public int XResolution { get; set; }
         public int YResolution { get; set; }
+
+        public Wallpaper(string name, string section, string type, int xres, int yres)
+        {
+            Name = name;
+            Section = section;
+            Type = type;
+            XResolution = xres;
+            YResolution = yres;
+        }
     }
 }
