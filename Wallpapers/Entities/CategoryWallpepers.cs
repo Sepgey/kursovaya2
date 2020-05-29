@@ -13,6 +13,5 @@ namespace Wallpapers.Entities
 		public string description { get; set; }
 
 		public List<Wallpapers> wallpapers { get; set; }
-
 	}
 }
