@@ -10,6 +10,6 @@ namespace Wallpapers.Entities
 
 		public string description { get; set; }
 
-		public ICollection<Wallpaper>  Wallpapers { get; set; }
+		public IList<Wallpaper>  Wallpapers { get; set; }
 	}
 }
