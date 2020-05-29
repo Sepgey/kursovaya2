@@ -6,25 +6,23 @@ namespace Wallpapers.Entities
 {
     class User : AuditableEntity
     {
-        public int UserID { get; set; }
-
         public string FirstName { get; set; }
 
-        public string SecondName { get; set; }
+        public string Surname { get; set; }
 
-        public int YearOfBirth { get; set; }
+        public int BirthDay { get; set; }
 
-        public string Nickname { get; set; }
+        public string Login { get; set; }
 
-        public User(string firstName, string secondName, string nickname, int yearOfBirth)
+        public User(string firstName, string surname, string login, int birthDay)
         {
             FirstName = firstName;
 
-            SecondName = secondName;
+            Surname = surname;
 
-            Nickname = nickname;
+            Login = Login;
 
-            YearOfBirth = yearOfBirth;
+            BirthDay = birthDay;
         }
     }
 }
