@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Wallpapers.Entities
 {
@@ -9,6 +10,6 @@ namespace Wallpapers.Entities
 
 		public string description { get; set; }
 
-		public IList  wallpapers { get; set; }
+		public ICollection<Wallpaper>  Wallpapers { get; set; }
 	}
 }

@@ -10,19 +10,15 @@ namespace Wallpapers.Entities
 
         public string Surname { get; set; }
 
-        public int BirthDay { get; set; }
-
         public string Login { get; set; }
 
-        public User(string firstName, string surname, string login, int birthDay)
+        public User(string firstName, string surname, string login)
         {
             FirstName = firstName;
 
             Surname = surname;
 
             Login = Login;
-
-            BirthDay = birthDay;
         }
     }
 }

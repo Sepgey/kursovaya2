@@ -12,7 +12,15 @@ namespace Wallpapers.Entities
 
         public string Section { get; set; }
 
-        public string Type { get; set; }
+        enum Types 
+        {
+            RAW = 1,
+            JPEG,
+            GIF,
+            PNG,
+            TIFF,
+            BMP
+        }
 
         public int XResolution { get; set; }
 
