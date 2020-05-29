@@ -8,7 +8,6 @@ namespace Wallpapers.Entities
     {
         public int WallpapersId { get; set; }
 
-
         public string Name { get; set; }
 
         public string Section { get; set; }
