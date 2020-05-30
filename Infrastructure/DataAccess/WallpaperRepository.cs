@@ -7,8 +7,15 @@ using Wallpapers.Entities;
 
 namespace Infrastructure.DataAccess
 {
-    class WallpaperRepository : AuditableRepository<Wallpaper>, IWallpaperRepository
+    public class WallpaperRepository : AuditableRepository<Wallpaper>, IWallpaperRepository
     {
-       
+        private readonly AppDbContext _dbContext;
+
+        public WallpaperRepository(AppDbContext dbContext) : base(dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+
     }
 }

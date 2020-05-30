@@ -5,7 +5,7 @@ using Wallpapers.Entities;
 
 namespace Infrastructure.DataAccess
 {
-    interface IWallpaperRepository
+    public interface IWallpaperRepository
     {
         IReadOnlyList<Wallpaper> GetAll();
         Wallpaper Get(int id);
