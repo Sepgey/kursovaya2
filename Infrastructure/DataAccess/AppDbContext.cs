@@ -1,10 +1,20 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using Wallpapers.Entities;
 
 namespace Infrastructure.DataAccess
 {
-    class AppDbContext
+    public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
+        public DbSet<Wallpaper> Wallpapers { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
     }
 }

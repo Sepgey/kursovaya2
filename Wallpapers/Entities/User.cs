@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Wallpapers.Entities
 {
-    class User : AuditableEntity
+    public class User : AuditableEntity
     {
         public string FirstName { get; set; }
 

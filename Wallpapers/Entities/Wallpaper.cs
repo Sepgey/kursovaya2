@@ -4,37 +4,37 @@ using System.Text;
 
 namespace Wallpapers.Entities
 {
-   public class Wallpaper : AuditableEntity
+    public enum Types
     {
-        public int WallpapersId { get; set; }
+        RAW = 1,
+        JPEG,
+        GIF,
+        PNG,
+        TIFF,
+        BMP
+    }
+    public class Wallpaper : AuditableEntity
+    {
 
         public string Name { get; set; }
 
         public string Section { get; set; }
 
-        enum Types 
-        {
-            RAW = 1,
-            JPEG,
-            GIF,
-            PNG,
-            TIFF,
-            BMP
-        }
-
         public int XResolution { get; set; }
 
         public int YResolution { get; set; }
 
-        public int categoryId { get; set; }
+        public int CategoryId { get; set; }
 
-        public Wallpaper(string name, string section, string type, int xres, int yres)
+        Types Types;
+        public Wallpaper(string name, string section,  int xres, int yres, int categoryId, Types types)
         {
             Name = name;
             Section = section;
-            Type = type;
             XResolution = xres;
             YResolution = yres;
+            CategoryId = categoryId;
+            Types = types;
         }
     }
 }
