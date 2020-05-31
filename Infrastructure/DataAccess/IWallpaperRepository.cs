@@ -11,6 +11,6 @@ namespace Infrastructure.DataAccess
         Wallpaper Get(int id);
         void Add(Wallpaper wallpaper);
         void Delete(Wallpaper wallpaper);
-        IReadOnlyList<Wallpaper> GetWallpapersByName(string name);
+        IReadOnlyList<Wallpaper> GetWallpapersByCategory(string category);
     }
 }

@@ -31,7 +31,7 @@ namespace Infrastructure.DataAccess
             return _dbContext.Wallpapers.Where(x => x.Name.ToLower().Contains(category.ToLower())).ToList();
         }
 
-        IReadOnlyList<Wallpaper> IWallpaperRepository.GetWallpapersByName(string name)
+        void IWallpaperRepository.Delete(Wallpaper wallpaper)
         {
             throw new NotImplementedException();
         }
