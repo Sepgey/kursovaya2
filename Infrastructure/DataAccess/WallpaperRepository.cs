@@ -16,6 +16,11 @@ namespace Infrastructure.DataAccess
             _dbContext = dbContext;
         }
 
+        public override Wallpaper Get(int id)
+        {
+            return base.Get(id);
+        }
+        
 
     }
 }

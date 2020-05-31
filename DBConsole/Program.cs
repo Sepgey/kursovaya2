@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Design;
+using System;
 
 namespace DBConsole
 {
-    class Program
+    public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext> 
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+
     }
 }
