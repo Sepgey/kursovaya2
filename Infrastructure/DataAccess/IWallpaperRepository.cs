@@ -9,7 +9,8 @@ namespace Infrastructure.DataAccess
     {
         IReadOnlyList<Wallpaper> GetAll();
         Wallpaper Get(int id);
-        void Add(Wallpaper wallpaper);  
+        void Add(Wallpaper wallpaper);
+        void Delete(Wallpaper wallpaper);
         IReadOnlyList<Wallpaper> GetWallpapersByName(string name);
     }
 }
