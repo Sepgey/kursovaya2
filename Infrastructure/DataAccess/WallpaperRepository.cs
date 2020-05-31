@@ -20,7 +20,20 @@ namespace Infrastructure.DataAccess
         {
             return base.Get(id);
         }
-        
 
+        public IReadOnlyList<Wallpaper> GetAll()
+        {
+            return _dbContext.Wallpapers.ToList();
+        }
+
+        public IReadOnlyList<Wallpaper> GetWallpapersByCategory(string category)
+        {
+            return _dbContext.Wallpapers.Where(x => x.Name.ToLower().Contains(category.ToLower())).ToList();
+        }
+
+        IReadOnlyList<Wallpaper> IWallpaperRepository.GetWallpapersByName(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
