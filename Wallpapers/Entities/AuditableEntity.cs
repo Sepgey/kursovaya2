@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Wallpapers.Entities
 {
-    public abstract class AuditableEntity
+    public abstract class AuditableEntity : Entity
     {
         public DateTime CreatedAt { get; set; }
 
