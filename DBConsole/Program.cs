@@ -3,39 +3,38 @@ using Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
-using Microsoft.Extensions.Options;
-using EO.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DBConsole
 {
-    public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext> 
+    public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
-        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        OptionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=WallpaperDb;Trusted_Connection=True;", b => b.MigrationsAssembly("Infrastructure"));
+        public AppDbContextFactory CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=WallpaperDB;Trusted_Connection=True;", b => b.MigrationsAssembly("Infrastructure"));
             return new AppDbContext(optionsBuilder.Options);
+        }
     }
 
     class Program
     {
         private static readonly AppDbContext _appContext;
         private static IWallpaperRepository _wallpaperRepository;
-        private static IUserRepository _authorRepository;
+        private static IUserRepository _userRepository;
+
         static Program()
         {
             AppDbContextFactory factory = new AppDbContextFactory();
             _appContext = factory.CreateDbContext(null);
-            _authorRepository = new UserRepository(_appContext);
             _wallpaperRepository = new WallpaperRepository(_appContext);
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Start!");
+            Console.WriteLine("Start");
 
-            User author = new User("Александр", "Пушкин", "Сергеевич");
-            _authorRepository.Add(author);
-            Wallpaper wallpaper= new Wallpaper();
-            _wallpaperRepository.Add(wallpaper);
+            Wallpaper wallpaper = new Wallpaper("Trees", "Nature", 1080, 1920, 1, Types.PNG);
         }
     }
 }
