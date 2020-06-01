@@ -9,7 +9,7 @@ namespace DBConsole
 {
     public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
-        public AppDbContextFactory CreateDbContext(string[] args)
+        public AppDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=WallpaperDB;Trusted_Connection=True;", b => b.MigrationsAssembly("Infrastructure"));
