@@ -32,7 +32,7 @@ namespace DBConsole
             _userRepository = new UserRepository(_appContext);
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Wallpaper wallpaper = new Wallpaper("Tree", "Nature", 1920, 1080, 1, Types.PNG);
             User user = new User("Sepgey", "Tarberdyev", "SSSSeryoga");

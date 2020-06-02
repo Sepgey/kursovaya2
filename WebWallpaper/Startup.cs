@@ -41,6 +41,10 @@ namespace WebWallpaper
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseFileServer();
+
+            app.UseStatusCodePages();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

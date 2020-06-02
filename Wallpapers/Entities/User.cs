@@ -20,5 +20,9 @@ namespace Wallpapers.Entities
 
             Login = Login;
         }
+        public User()
+        {
+                
+        }
     }
 }

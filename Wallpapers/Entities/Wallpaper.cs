@@ -35,5 +35,9 @@ namespace Wallpapers.Entities
             CategoryId = categoryId;
             _Types = types;
         }
+        public Wallpaper()
+        {
+                
+        }
     }
 }
