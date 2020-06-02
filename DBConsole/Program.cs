@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Threading.Channels;
 
 namespace DBConsole
 {
@@ -32,9 +33,25 @@ namespace DBConsole
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Start");
+            using (var context = new AppDbContext()) 
+            {
+                var wallaper = new Wallpaper()
+                {
+                    Id = 1,
+                    Name = "Tree",
+                    Section = "Nature",
+                    XResolution = 1080,
+                    YResolution = 1920,
+                    CategoryId = 1,
+                    _Types = (Types)4
+                };
 
-            Wallpaper wallpaper = new Wallpaper("Trees", "Nature", 1080, 1920, 1, Types.PNG);
+                context.Wallpapers.Add(wallaper);
+                context.SaveChanges();
+
+                Console.WriteLine($"Id: {wallaper.Id}, Name: {wallaper.Name}, Section: {wallaper.Section}, Resolution: {wallaper.XResolution}x{wallaper.YResolution}, Category: {wallaper.CategoryId}, Type: {wallaper._Types}");
+                Console.ReadLine();
+            }
         }
     }
 }

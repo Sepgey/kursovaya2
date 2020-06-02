@@ -26,7 +26,7 @@ namespace Wallpapers.Entities
 
         public int CategoryId { get; set; }
 
-        Types _Types;
+        public  Types _Types;
         public Wallpaper(string name, string section,  int xres, int yres, int categoryId, Types types)
         {
             Name = name;
@@ -35,6 +35,10 @@ namespace Wallpapers.Entities
             YResolution = yres;
             CategoryId = categoryId;
             _Types = types;
+        }
+
+        public Wallpaper()
+        {
         }
     }
 }
