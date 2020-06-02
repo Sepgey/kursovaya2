@@ -15,7 +15,6 @@ namespace Wallpapers.Entities
     }
     public class Wallpaper : AuditableEntity
     {
-
         public string Name { get; set; }
 
         public string Section { get; set; }
@@ -35,10 +34,6 @@ namespace Wallpapers.Entities
             YResolution = yres;
             CategoryId = categoryId;
             _Types = types;
-        }
-
-        public Wallpaper()
-        {
         }
     }
 }

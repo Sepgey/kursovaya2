@@ -20,7 +20,7 @@ namespace DBConsole
 
     class Program
     {
-        private static readonly AppDbContext _appContext;
+        private static AppDbContext _appContext;
         private static IWallpaperRepository _wallpaperRepository;
         private static IUserRepository _userRepository;
 
@@ -29,29 +29,19 @@ namespace DBConsole
             AppDbContextFactory factory = new AppDbContextFactory();
             _appContext = factory.CreateDbContext(null);
             _wallpaperRepository = new WallpaperRepository(_appContext);
+            _userRepository = new UserRepository(_appContext);
         }
 
         static void Main(string[] args)
         {
-            using (var context = new AppDbContext()) 
-            {
-                var wallaper = new Wallpaper()
-                {
-                    Id = 1,
-                    Name = "Tree",
-                    Section = "Nature",
-                    XResolution = 1080,
-                    YResolution = 1920,
-                    CategoryId = 1,
-                    _Types = (Types)4
-                };
+            Wallpaper wallpaper = new Wallpaper("Tree", "Nature", 1920, 1080, 1, Types.PNG);
+            User user = new User("Sepgey", "Tarberdyev", "SSSSeryoga");
 
-                context.Wallpapers.Add(wallaper);
-                context.SaveChanges();
+            _wallpaperRepository.Add(wallpaper);
+            _userRepository.Add(user);
 
-                Console.WriteLine($"Id: {wallaper.Id}, Name: {wallaper.Name}, Section: {wallaper.Section}, Resolution: {wallaper.XResolution}x{wallaper.YResolution}, Category: {wallaper.CategoryId}, Type: {wallaper._Types}");
-                Console.ReadLine();
-            }
+            Console.WriteLine($"Id: {wallpaper.Id}, Name: {wallpaper.Name}, Section: {wallpaper.Section}, Resolution: {wallpaper.XResolution}x{wallpaper.YResolution}, Category: {wallpaper.CategoryId}, Type: {wallpaper._Types}");
+            Console.ReadLine();
         }
     }
 }
