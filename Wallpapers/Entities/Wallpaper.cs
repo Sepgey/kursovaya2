@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Wallpapers.Entities
 {
-    public enum Types
+    public enum ImageFormat
     {
         RAW = 1,
         JPEG,
@@ -25,19 +25,19 @@ namespace Wallpapers.Entities
 
         public int CategoryId { get; set; }
 
-        public  Types _Types;
-        public Wallpaper(string name, string section,  int xres, int yres, int categoryId, Types types)
+        public ImageFormat Format { get; set; }
+        public Wallpaper(int id, string name, string section, int xres, int yres, int categoryId, ImageFormat format) : base(id)
         {
             Name = name;
             Section = section;
             XResolution = xres;
             YResolution = yres;
             CategoryId = categoryId;
-            _Types = types;
+            Format = format;
         }
         public Wallpaper()
         {
-                
+
         }
     }
 }

@@ -34,13 +34,13 @@ namespace DBConsole
 
         public static void Main(string[] args)
         {
-            Wallpaper wallpaper = new Wallpaper("Tree", "Nature", 1920, 1080, 1, Types.PNG);
-            User user = new User("Sepgey", "Tarberdyev", "SSSSeryoga");
+            Wallpaper wallpaper = new Wallpaper(0,"Tree", "Nature", 1920, 1080, 1, ImageFormat.PNG);
+            User user = new User(0,"Sepgey", "Tarberdyev", "SSSSeryoga");
 
             _wallpaperRepository.Add(wallpaper);
             _userRepository.Add(user);
 
-            Console.WriteLine($"Id: {wallpaper.Id}, Name: {wallpaper.Name}, Section: {wallpaper.Section}, Resolution: {wallpaper.XResolution}x{wallpaper.YResolution}, Category: {wallpaper.CategoryId}, Type: {wallpaper._Types}");
+            Console.WriteLine($"Id: {wallpaper.Id}, Name: {wallpaper.Name}, Section: {wallpaper.Section}, Resolution: {wallpaper.XResolution}x{wallpaper.YResolution}, Category: {wallpaper.CategoryId}, Type: {wallpaper.Format}");
             Console.ReadLine();
         }
     }

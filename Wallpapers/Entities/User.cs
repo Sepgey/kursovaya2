@@ -12,7 +12,7 @@ namespace Wallpapers.Entities
 
         public string Login { get; set; }
 
-        public User(string firstName, string surname, string login)
+        public User(int id, string firstName, string surname, string login) : base (id)
         {
             FirstName = firstName;
 
