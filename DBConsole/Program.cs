@@ -35,13 +35,16 @@ namespace DBConsole
         public static void Main(string[] args)
         {
             Wallpaper wallpaper = new Wallpaper(0,"Tree", "Nature", 1920, 1080, 1, ImageFormat.PNG);
-            Wallpaper wallpaper1 = new Wallpaper(1, "People", "Human", 1920, 1080, 2, ImageFormat.JPEG);
+            Wallpaper wallpaper1 = new Wallpaper(0, "People", "Human", 1920, 1080, 2, ImageFormat.JPEG);
             User user = new User(0,"Sepgey", "Tarberdyev", "SSSSeryoga");
 
             _wallpaperRepository.Add(wallpaper);
+            _wallpaperRepository.Add(wallpaper1);
             _userRepository.Add(user);
 
             Console.WriteLine($"Id: {wallpaper.Id}, Name: {wallpaper.Name}, Section: {wallpaper.Section}, Resolution: {wallpaper.XResolution}x{wallpaper.YResolution}, Category: {wallpaper.CategoryId}, Type: {wallpaper.Format}");
+            Console.WriteLine($"Id: {wallpaper1.Id}, Name: {wallpaper1.Name}, Section: {wallpaper1.Section}, Resolution: {wallpaper1.XResolution}x{wallpaper1.YResolution}, Category: {wallpaper1.CategoryId}, Type: {wallpaper1.Format}");
+
             Console.ReadLine();
         }
     }
