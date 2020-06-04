@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace WebWallpaper
+namespace WebBook
 {
     public class Startup
     {
@@ -27,10 +27,18 @@ namespace WebWallpaper
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connection));
+            services.AddControllers().AddNewtonsoftJson();
             services.AddControllersWithViews();
+
+
+
+
+            services.AddScoped<IWallpaperRepository, WallpaperRepository>();
+
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection")));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,26 +46,19 @@ namespace WebWallpaper
         {
             if (env.IsDevelopment())
             {
+                app.UseFileServer();
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseFileServer();
-
-            app.UseStatusCodePages();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseStaticFiles();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name : default,
-                    pattern : "{controller=Home}/{action=Index}/{id?}") ;
+                endpoints.MapControllers();
             });
         }
     }

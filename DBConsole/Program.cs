@@ -35,6 +35,7 @@ namespace DBConsole
         public static void Main(string[] args)
         {
             Wallpaper wallpaper = new Wallpaper(0,"Tree", "Nature", 1920, 1080, 1, ImageFormat.PNG);
+            Wallpaper wallpaper1 = new Wallpaper(1, "People", "Human", 1920, 1080, 2, ImageFormat.JPEG);
             User user = new User(0,"Sepgey", "Tarberdyev", "SSSSeryoga");
 
             _wallpaperRepository.Add(wallpaper);
