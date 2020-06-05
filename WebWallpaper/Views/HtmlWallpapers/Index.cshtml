@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Wallpapers.Entities.Wallpaper>
 
 @{
-    ViewData["Title"] = "Главная - список книг";
+    ViewData["Title"] = "Главная - список обоев";
 }
 
 
-<h1>Список книг</h1>
+<h1>Список обоев</h1>
 
 <p>
-    <a asp-action="Create">Создать новую книгу</a>
+    <a asp-action="Create">Создать новые обои</a>
 </p>
 
 <table class="table">
@@ -18,10 +18,10 @@
                 Название
             </th>
             <th>
-                Автор
+               Категория
             </th>
             <th>
-                Страниц
+                Разрешение
             </th>
             <th></th>
         </tr>
@@ -42,7 +42,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.YResolution)
                 </td>
-<td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Обновить</a>
                 </td>
             </tr>

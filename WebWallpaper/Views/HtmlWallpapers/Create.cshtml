@@ -1,0 +1,38 @@
+﻿@model Wallpapers.Entities.Wallpaper
+
+@{
+    ViewData["Title"] = "Создание новых обоев";
+}
+
+<h1>Создание новых обоев</h1>
+
+<h4>Обои</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label>Section</label>
+                <input asp-for="Section" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Имя</label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>XResolution</label>
+                <input asp-for="XResolution" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>YResolution</label>
+                <input asp-for="YResolution" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>

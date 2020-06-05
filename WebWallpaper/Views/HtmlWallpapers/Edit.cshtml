@@ -1,0 +1,36 @@
+﻿@model Wallpapers.Entities.Wallpaper
+
+@{
+    ViewData["Title"] = "Обновление данных обоев";
+}
+
+
+<h1>Обновление данных обоев</h1>
+
+<h4>Обои</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            @Html.HiddenFor(p => p.Id)
+            <div class="form-group">
+                <label>Section</label>
+                <input asp-for="Section" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>XResolution</label>
+                <input asp-for="XResolution" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>YResolution</label>
+                <input asp-for="YResolution" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Обновить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Вернуться к списку</a>
+</div>
