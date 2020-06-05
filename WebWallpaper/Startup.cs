@@ -46,9 +46,10 @@ namespace WebBook
         {
             if (env.IsDevelopment())
             {
-                app.UseFileServer();
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseFileServer();
 
             app.UseHttpsRedirection();
 

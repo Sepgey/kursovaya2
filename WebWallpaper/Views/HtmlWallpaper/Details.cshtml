@@ -1,0 +1,49 @@
+﻿@model Wallpapers.Entities.Wallpaper
+
+@{
+    ViewData["Title"] = "Главная - информация о продукте";
+}
+
+
+<h1>Список обоев</h1>
+
+<p>
+    <a asp-action="Create">Создать новые обои</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Категория
+            </th>
+            <th>
+                Разрешение
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+   <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.XResolution)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.YResolution)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Обновить</a>
+                </td>
+            </tr>
+        
+    </tbody>
+</table>
