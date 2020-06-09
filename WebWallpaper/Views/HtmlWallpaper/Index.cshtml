@@ -5,7 +5,7 @@
 }
 
 
-<h1>Список обоев</h1>
+<h1 align="center">Список обоев</h1>
 
 <p>
     <a asp-action="Create">Создать новые обои</a>
@@ -23,7 +23,9 @@
             <th>
                 Разрешение
             </th>
-            <th></th>
+            <th>
+                Формат
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -34,13 +36,15 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoryId)
+                    @Html.DisplayFor(modelItem => item.Section)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.XResolution)
+                    @Html.Display("x")
+                    @Html.DisplayFor(modelItem => item.YResolution)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.YResolution)
+                    @Html.DisplayFor(modelItem => item.Format)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Обновить</a>
